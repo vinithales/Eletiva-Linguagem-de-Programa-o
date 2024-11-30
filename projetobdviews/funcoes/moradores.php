@@ -64,7 +64,7 @@ function todosMoradores(): array{
 
 function buscarMoradorPorId(int $id): ?array{
     global $pdo;
-    $stmt  = $pdo->prepare("SELECT * FROM morador WHERE id = ? AND nivel <> 'adm'");
+    $stmt  = $pdo->prepare("SELECT * FROM morador WHERE id = ? ");
     $stmt ->execute([$id]);
     $morador = $stmt ->fetch(PDO::FETCH_ASSOC);
     return $morador ? $morador : null;
