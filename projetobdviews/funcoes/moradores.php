@@ -58,7 +58,7 @@ function excluirMorador(int $id):bool{
 
 function todosMoradores(): array{
     global $pdo;
-    $stmt  = $pdo->query(" SELECT * FROM morador WHERE nivel <> 'adm' ");
+    $stmt  = $pdo->query(" SELECT * FROM morador");
     return $stmt ->fetchAll(PDO::FETCH_ASSOC);
 }
 
