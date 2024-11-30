@@ -1,30 +1,32 @@
-CREATE TABLE usuario (
+CREATE TABLE terreno (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    area DECIMAL(10, 2) NOT NULL,
+    localizacao TEXT NOT NULL
+);
+
+CREATE TABLE morador (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
-    senha VARCHAR(255) NOT NULL,
-    nivel ENUM('adm', 'colab') NOT NULL
+    telefone VARCHAR(15)
 );
 
-CREATE TABLE categoria (
+CREATE TABLE especie_planta (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL
+    nome_cientifico VARCHAR(100) NOT NULL,
+    nome_popular VARCHAR(100),
+    descricao TEXT
 );
 
-CREATE TABLE produto (
+CREATE TABLE plantio (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL,
-    descricao TEXT,
-    preco DECIMAL(10, 2) NOT NULL,
-    estoque_minimo INT NOT NULL,
-    categoria_id INT,
-    FOREIGN KEY (categoria_id) REFERENCES categoria(id)
-);
-
-CREATE TABLE compra (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    data DATETIME NOT NULL,
-    produto_id INT,
-    quantidade INT NOT NULL,
-    FOREIGN KEY (produto_id) REFERENCES produto(id)
+    morador_id INT NOT NULL,
+    terreno_id INT NOT NULL,
+    especie_id INT NOT NULL,
+    data_inicio DATE NOT NULL,
+    data_fim DATE,
+    FOREIGN KEY (morador_id) REFERENCES morador(id),
+    FOREIGN KEY (terreno_id) REFERENCES terreno(id),
+    FOREIGN KEY (especie_id) REFERENCES especie_planta(id)
 );
