@@ -38,9 +38,15 @@ function novoMorador(string $nome, string $email, string $senha, string $nivel, 
 
 function alterarMorador(int $id, string $nome, string $email, string $senha, int $telefone ): bool{
     global $pdo;
-    $stmt = $pdo->prepare("UPDATE morador SET nome = ?, email =  ?, senha = ?, telefone = ?  WHERE id =  ? ");
+    if (empty($senha)) {
+        $stmt = $pdo->prepare("UPDATE morador SET nome = ?, email = ?, telefone = ? WHERE id = ?");
+        return $stmt->execute([$nome, $email, $telefone, $id]);
+    } else {
+        $stmt = $pdo->prepare("UPDATE morador SET nome = ?, email = ?, senha = ?, telefone = ? WHERE id = ?");
+        return $stmt->execute([$nome, $email, $senha, $telefone, $id]);
+    }
 
-    return $stmt->execute([$nome, $email, $senha, $telefone]);
+    return $stmt->execute([$nome, $email, $senha, $telefone, $id]);
 }
 
 function excluirMorador(int $id):bool{

@@ -48,6 +48,10 @@
 ?>
 
 <div class="container mt-5">
+    <?php if(!empty($erro)):?>
+            <p class="text-danger"><?= $erro ?></p>
+    <?php endif; ?>
+
     <h2>Editar Morador</h2>
     <form method="post">
     <div class="mb-3">
