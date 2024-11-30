@@ -52,10 +52,10 @@
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Compras
+            Plantios
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="compras.php">Gerenciar</a></li>
+            <li><a class="dropdown-item" href="plantios.php">Gerenciar</a></li>
             <li><a class="dropdown-item" href="relatorio_compras.php">Relatórios</a></li>
           </ul>
         </li>

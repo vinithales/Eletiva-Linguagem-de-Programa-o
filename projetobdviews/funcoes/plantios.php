@@ -7,13 +7,13 @@ require_once '../config/bancodedados.php';
 function gerarDadosGrafico(): array
 {
     global $pdo;
+    // Contando o número de plantios por espécie
     $stmt = $pdo->query("SELECT 
-                                p.id,
-                                p.nome,
-                                SUM(c.quantidade) as estoque 
-                            FROM compra c
-                            INNER JOIN produto p ON p.id = c.produto_id
-                            GROUP BY p.id");
+                            e.nome_cientifico AS especie, 
+                            COUNT(p.id) AS quantidade 
+                        FROM plantio p
+                        INNER JOIN especie_planta e ON p.especie_id = e.id
+                        GROUP BY e.id");
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
@@ -22,11 +22,11 @@ function buscarPlantios(): array
     global $pdo;
     $stmt = $pdo->query("SELECT 
                 p.id,
+                m.nome AS nome_morador,  
+                t.nome AS nome_terreno,  
+                e.nome_popular AS nome_popular_especie, 
                 p.data_inicio,
-                p.data_fim,
-                m.nome AS nome_morador,
-                t.nome AS nome_terreno,
-                e.nome_cientifico AS especie
+                p.data_fim
             FROM plantio p
             INNER JOIN morador m ON p.morador_id = m.id
             INNER JOIN terreno t ON p.terreno_id = t.id
