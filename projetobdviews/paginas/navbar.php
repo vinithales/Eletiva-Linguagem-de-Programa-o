@@ -43,10 +43,10 @@
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Produtos
+            Especies de Plantas
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="produtos.php">Gerenciar</a></li>
+            <li><a class="dropdown-item" href="especies.php">Gerenciar</a></li>
           </ul>
         </li>
 
@@ -66,8 +66,8 @@
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Seja bem vindo(a) 
                     <?php
-                      if (isset($_SESSION['usuario']))
-                        echo $_SESSION['usuario'];
+                      if (isset($_SESSION['morador']))
+                        echo $_SESSION['morador'];
                     ?>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">

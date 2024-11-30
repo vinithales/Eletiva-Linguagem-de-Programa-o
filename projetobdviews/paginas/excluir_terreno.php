@@ -33,7 +33,7 @@
 ?>
 
 <div class="container mt-5">
-    <h2>Excluir Categoria</h2>
+    <h2>Excluir  Terreno</h2>
     
     <p>Tem certeza de que deseja excluir o Terreno?</p>
     <ul>
@@ -45,7 +45,7 @@
         <input type="hidden" name="id" value="<?= $terreno['id'] ?>">
         <button type="submit" name="confirmar" class="btn btn-danger" >Excluir</button>
 
-        <a href="categorias.php" class="btn btn-secondary">Cancelar</a>
+        <a href="terrenos.php" class="btn btn-secondary">Cancelar</a>
     </form>
 </div>
 
