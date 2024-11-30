@@ -26,8 +26,8 @@
             <?php foreach($plantios as $p) : ?>
             <tr>
                 <td><?= $p['id'] ?></td>
-                <td><?= $p['nome_moradores'] ?></td>
-                <td><?= $p['nome_terrenos'] ?></td>
+                <td><?= $p['nome_morador'] ?></td>
+                <td><?= $p['nome_terreno'] ?></td>
                 <td><?= $p['nome_popular_especie'] ?></td>
                 <td><?= $p['data_inicio'] ?></td>
                 <td><?= $p['data_fim'] ?></td>
