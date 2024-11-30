@@ -25,7 +25,7 @@
             $email = $_POST['email'];
             $senha = $_POST['senha'];
             $telefone = intval($_POST['telefone']);
-            if(empty($nome) && empty($senha) && empty($email) && empty($telefone)){
+            if(empty($nome) || empty($senha) || empty($email) || empty($telefone)){
                 $erro = "Preencha os campos obrigatórios!";
             } else{
                 if(alterarMorador($id, $nome, $email, $senha, $telefone)){

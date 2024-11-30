@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types = 1);
-
+require_once('../config/bancodedados.php');
 
 function buscarTerrenos(): array {
     global $pdo;
@@ -12,7 +12,7 @@ function buscarTerrenos(): array {
 
 function buscarTerrenoPorId(int $id): ?array{
     global $pdo;
-    $stmt = $pdo->query("SELECT * FROM terreno WHERE id = ?");
+    $stmt = $pdo->prepare("SELECT * FROM terreno WHERE id = ?");
     $stmt->execute([$id]);
 
     $terreno = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -20,7 +20,7 @@ function buscarTerrenoPorId(int $id): ?array{
 }
 
 
-function CriarTerreno(string $nome, string $area, string $localizacao) : bool {
+function CriarTerreno(string $nome, float $area, string $localizacao) : bool {
     global $pdo;
     $stmt = $pdo->prepare("INSERT INTO terreno (nome, area, localizacao) VALUES (?,?,?)");
 
