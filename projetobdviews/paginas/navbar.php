@@ -7,7 +7,7 @@
 
 <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/dashboard">Sistema de Compras de Produtos</a>
+    <a class="navbar-brand" href="/dashboard">Sistema de Controle de Plantio Comunitário</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -21,10 +21,10 @@
         ?>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Usuários
+              Moradores
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="usuarios.php">Gerenciar</a></li>
+              <li><a class="dropdown-item" href="moradores.php">Gerenciar</a></li>
             </ul>
           </li>
         <?php
