@@ -54,7 +54,7 @@
         </div>
         <div class="mb-3">
             <label for="telefone" class="form-label">Telefone</label>
-            <input type="number"  min="9" max="11" name="telefone" id="telefone" class="form-control" required>
+            <input type="number"  name="telefone" id="telefone" class="form-control" required>
         </div>
         <button type="submit" class="btn btn-primary">Cadastrar Morador</button>
     </form>

@@ -2,7 +2,7 @@
 
     require_once 'cabecalho.php'; 
     require_once 'navbar.php';
-    require_once '../funcoes/produtos.php';
+    require_once '../funcoes/plantio.php';
 
     $dados = gerarDadosGrafico();
 ?>
@@ -27,7 +27,7 @@
             var data = google.visualization.arrayToDataTable([
                 ['Produto', 'Estoque Comprado', { role: 'style' }],
                 <?php foreach ($dados as $d): ?>
-                    ['<?= $d['nome'] ?>', <?= $d['estoque'] ?>, 'magenta'],
+                    ['<?= $d['nome'] ?>', <?= $d['plantio'] ?>, 'magenta'],
                 <?php endforeach; ?>
             ]);
 

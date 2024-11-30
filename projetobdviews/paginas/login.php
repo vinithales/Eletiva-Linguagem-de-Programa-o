@@ -1,6 +1,6 @@
 <?php 
 
-    require_once('../funcoes/usuarios.php');
+    require_once('../funcoes/moradores.php');
 
     session_start();
     if($_SERVER['REQUEST_METHOD'] == "POST"){
@@ -8,18 +8,22 @@
             $email = $_POST['email'] ?? "";
             $senha = $_POST['senha'] ?? "";
             if ($email != "" && $senha != ""){
-                $usuario = login($email, $senha);
-                if ($usuario){
-                    $_SESSION['usuario'] = $usuario['nome'];
-                    $_SESSION['nivel'] = $usuario['nivel'];
+                $morador = login($email, $senha);
+                var_dump($morador);
+                if ($morador){
+                    $_SESSION['morador'] = $morador['nome'];
+                    $_SESSION['nivel'] = $morador['nivel'];
                     $_SESSION['acesso'] = true;
                     header("Location: dashboard.php");
                 } else {
+                    
                     $erro = "Credenciais inválidas!";
+                    
                 }
             }
         } catch(Exception $e){
             echo "Erro: ".$e->getMessage();
+            
         }
     }
     require_once 'cabecalho.php'; 

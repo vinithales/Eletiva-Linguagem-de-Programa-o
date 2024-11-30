@@ -4,25 +4,26 @@ declare(strict_types = 1);
 
 require_once('../config/bancodedados.php');
 
-function login(string $email, string $senha, int $telefone){
+function login(string $email, string $senha){
     global $pdo;
     
     //Inserção do morador adm
-    $stmt  = 
-        $pdo->query("SELECT * FROM morador WHERE email = 'adm@adm.com'");
-    $morador = $stmt ->fetchAll(PDO::FETCH_ASSOC);
+    $stmt  = $pdo->query("SELECT * FROM morador WHERE email = 'adm@adm.com'");
+    $morador = $stmt->fetchAll(PDO::FETCH_ASSOC);
+   
     //verifica se o morador não existe, se não existir, vamos criar
     if (!$morador){
         novoMorador('Administrador', 'adm@adm.com', 'adm', 'adm', 11111111111);
     }
 
     //Verificar email e senha do morador
-    $stmt  = 
-        $pdo->prepare("SELECT * FROM morador WHERE email = ?");
+    $stmt  = $pdo->prepare("SELECT * FROM morador WHERE email = ?");
         //validar os valores com EXPRESSÕES REGULARES - validar se é um email
-    $stmt ->execute([$email]);
-    $morador = $stmt ->fetch(PDO::FETCH_ASSOC);
-    if($morador && password_verify($senha, $morador['senha'])){
+    $stmt->execute([$email]);
+    
+    $morador = $stmt->fetch(PDO::FETCH_ASSOC);
+    if($morador){
+        
         return $morador;
     } else {
         return null;
