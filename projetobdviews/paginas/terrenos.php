@@ -30,7 +30,7 @@
                 <td><?= $t['localizacao']?><td>
                 <td>
                     <a href="editar_terreno.php?id=<?= $t['id'] ?>" class="btn btn-warning">Editar</a>
-                    <a href="excluir_categoria.php" class="btn btn-danger">Excluir</a>
+                    <a href="excluir_terreno.php?id=<?= $t['id']?>" class="btn btn-danger">Excluir</a>
                 </td>
             </tr>
             <?php    

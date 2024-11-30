@@ -39,7 +39,7 @@
     <ul>
         <li><strong>Nome: <?= $morador['nome'] ?></strong> </li>
         <li><strong>Email: <?= $morador['email'] ?></strong> </li>
-        <li><strong>Telefone: <?= $morador['Telefone']?></strong></li>
+        <li><strong>Telefone: <?= $morador['telefone']?></strong></li>
         <li><strong>Nível: Colaborador</strong> </li>
     </ul>
 
